@@ -41,7 +41,7 @@ function Vote(): JSX.Element {
                 }, 1000);
             }
         )
-    }, []);
+    }, [getMatchups]);
 
 
     useEffect(() => {
@@ -59,7 +59,7 @@ function Vote(): JSX.Element {
             }
         }
 
-        // axios.post(`https://rankings-tv51.onrender.com/rankings/vote?name=${matchup[id]}`);
+        axios.post(`https://rankings-tv51.onrender.com/rankings/vote?name=${matchup[id]}`);
     }
 
 

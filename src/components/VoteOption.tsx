@@ -22,7 +22,7 @@ function VoteOption(props: VoteOptionProps): JSX.Element {
 
         setTimeout(() => {
             setClicked(false);
-        }, 10);
+        }, 375);
     }
 
     return (
