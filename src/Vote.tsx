@@ -41,7 +41,7 @@ function Vote(): JSX.Element {
                 }, 1000);
             }
         )
-    }, [getMatchups]);
+    }, []);
 
 
     useEffect(() => {
