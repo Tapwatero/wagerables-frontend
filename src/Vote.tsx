@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import VoteOption from "./components/VoteOption";
 import axios, {AxiosResponse} from "axios";
 import {ClipLoader} from "react-spinners";
@@ -21,15 +21,14 @@ function Vote(): JSX.Element {
         return pMatchups;
     }
 
-    const getMatchups = () => {
+    const getMatchups = useCallback(() => {
         setLoading(true)
         axios.get("https://rankings-tv51.onrender.com/matchups/").then(function (response: AxiosResponse<string[][]>) {
             setMatchups(shuffleMatchups(response.data));
             setLoading(false);
             setIndex(0);
         });
-        console.log("getting matchups!");
-    }
+    }, []);
 
     useEffect(() => {
 
@@ -41,7 +40,7 @@ function Vote(): JSX.Element {
                 }, 1000);
             }
         )
-    }, []);
+    }, [getMatchups]);
 
 
     useEffect(() => {
