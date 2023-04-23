@@ -10,21 +10,32 @@ function Vote(): JSX.Element {
     const [matchup, setMatchup] = useState<string[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
+    const shuffleMatchups = (pMatchups: string[][]) => {
+        // iterate backwards through the array
+        for (let i = pMatchups.length - 1; i > 0; i--) {
+            // pick a random index from 0 to i
+            let j = Math.floor(Math.random() * (i + 1));
+            // swap the current element with the random element
+            [pMatchups[i], pMatchups[j]] = [pMatchups[j], pMatchups[i]];
+        }
+        return pMatchups;
+    }
+
+    const getMatchups = () => {
+        setLoading(true)
+        axios.get("https://rankings-tv51.onrender.com/matchups/").then(function (response: AxiosResponse<string[][]>) {
+            setMatchups(shuffleMatchups(response.data));
+            setLoading(false);
+            setIndex(0);
+        });
+        console.log("getting matchups!");
+    }
 
     useEffect(() => {
-        const shuffleMatchups = (pMatchups: string[][]) => {
-            // iterate backwards through the array
-            for (let i = pMatchups.length - 1; i > 0; i--) {
-                // pick a random index from 0 to i
-                let j = Math.floor(Math.random() * (i + 1));
-                // swap the current element with the random element
-                [pMatchups[i], pMatchups[j]] = [pMatchups[j], pMatchups[i]];
-            }
-            return pMatchups;
-        }
+
 
         axios.get("https://rankings-tv51.onrender.com/matchups/").then(function (response: AxiosResponse<string[][]>) {
-                setMatchups(shuffleMatchups(response.data));
+                getMatchups();
                 setTimeout(() => {
                     setLoading(false);
                 }, 1000);
@@ -42,7 +53,13 @@ function Vote(): JSX.Element {
     const handleVote = (id: number) => {
         setIndex(index + 1);
 
-        axios.post(`https://rankings-tv51.onrender.com/rankings/vote?name=${matchup[id]}`);
+        if (matchups) {
+            if (index >= (matchups?.length - 5)) {
+                getMatchups();
+            }
+        }
+
+        // axios.post(`https://rankings-tv51.onrender.com/rankings/vote?name=${matchup[id]}`);
     }
 
 
