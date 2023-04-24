@@ -25,7 +25,7 @@ function Vote(): JSX.Element {
         setLoading(true)
         axios.get("https://rankings-tv51.onrender.com/matchups/").then(function (response: AxiosResponse<string[][]>) {
             setMatchups(shuffleMatchups(response.data));
-            setLoading(false);
+            setLoading(true);
             setIndex(0);
         });
     }, []);
@@ -59,11 +59,11 @@ function Vote(): JSX.Element {
             <div className={"flex flex-col md:flex-row items-center w-screen h-screen cursor-pointer duration-700"}>
                 <div
                     className={`bg-rose-500 select-none hover:opacity-75 duration-300 h-1/2 w-full md:h-full md:w-1/2 flex items-center justify-center w-1/2 h-full`}>
-                    <ClipLoader size={"100"} color={"white"}></ClipLoader>
+                    <h1 className={"text-center text-white text-4xl font-sans"}>Rankables has concluded</h1>
                 </div>
                 <div
                     className={`bg-sky-500 select-none hover:opacity-75 duration-300 h-1/2 w-full md:h-full md:w-1/2 flex items-center justify-center w-1/2 h-full`}>
-                    <ClipLoader size={"100"} color={"white"}></ClipLoader>
+                    <h1 className={"text-center text-white text-4xl font-sans"}>thank-you for participating!</h1>
                 </div>
             </div>
         ) : (
