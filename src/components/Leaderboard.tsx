@@ -36,7 +36,7 @@ function Leaderboard(): JSX.Element {
 
     return (
             <div className={"select-none flex justify-center items-center h-screen min-h-fit w-screen pattern-zigzag-3d pattern-blue-500 pattern-bg-white pattern-size-8 pattern-opacity-40"}>
-                <div className={"p-4 flex-col bg-indigo-400 h-4/6 min-h-fit w-2/3 md:w-3/5 xl:w-2/5 rounded-3xl flex justify-center items-center opacity-90"}>
+                <div className={"p-4 flex-col bg-indigo-400 h-4/6 min-h-fit w-11/12 md:w-3/5 xl:w-2/5 rounded-3xl flex justify-center items-center opacity-90"}>
                     <h1 className={"text-center text-white text-3xl w-full"}>Rankings Leaderboard ({totalVotes} Votes)</h1>
                     <hr className="h-0.5 mt-2 bg-gray-200 w-full mb-4"></hr>
                     <div className={"h-5/6 min-h-fit w-full overflow-y-scroll rounded-xl flex justify-start items-center flex-col gap-y-2"}>
