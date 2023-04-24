@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import VoteOption from "./components/VoteOption";
 import axios, {AxiosResponse} from "axios";
-import {ClipLoader} from "react-spinners";
 
 
 function Vote(): JSX.Element {
