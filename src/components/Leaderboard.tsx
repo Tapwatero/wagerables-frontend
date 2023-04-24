@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios, {AxiosResponse} from "axios";
-import {PropagateLoader, SkewLoader} from "react-spinners";
 
 function Leaderboard(): JSX.Element {
     const [totalVotes, setTotalVotes] = useState<string>("0");
