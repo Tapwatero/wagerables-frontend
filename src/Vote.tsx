@@ -31,15 +31,7 @@ function Vote(): JSX.Element {
     }, []);
 
     useEffect(() => {
-
-
-        axios.get("https://rankings-tv51.onrender.com/matchups/").then(function (response: AxiosResponse<string[][]>) {
-                getMatchups();
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
-            }
-        )
+        getMatchups();
     }, [getMatchups]);
 
 

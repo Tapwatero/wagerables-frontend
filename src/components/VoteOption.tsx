@@ -3,9 +3,9 @@ import Ripples from 'react-ripples'
 
 interface VoteOptionProps {
     id: number
-    matchup: String[]
+    matchup: string[]
     handleVote: (id: number) => void
-    colour: String
+    colour: string
 }
 
 function VoteOption(props: VoteOptionProps): JSX.Element {
