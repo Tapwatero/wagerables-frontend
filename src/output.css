@@ -562,10 +562,13 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.pattern-zigzag-3d {
+.pattern-rhombus {
   opacity: var(--pattern-opacity, 0.4);
   background-color: var(--pattern-bg-color, transparent);
-  background: linear-gradient(135deg, var(--pattern-color-55) 25%, transparent 25%) calc(var(--pattern-size, 40px) * -0.5) 0/ var(--pattern-size, 40px) var(--pattern-size, 40px), linear-gradient(225deg, var(--pattern-color) 25%, transparent 25%) calc(var(--pattern-size, 40px) * -0.5) 0/ var(--pattern-size, 40px) var(--pattern-size, 40px), linear-gradient(315deg, var(--pattern-color-55) 25%, transparent 25%) 0px 0/ var(--pattern-size, 40px) var(--pattern-size, 40px), linear-gradient(45deg, var(--pattern-color) 25%, var(--pattern-bg-color) 25%) 0px 0/ var(--pattern-size, 40px) var(--pattern-size, 40px);
+  background-image: linear-gradient(135deg, var(--pattern-color) 25%, transparent 25%), linear-gradient(225deg, var(--pattern-color) 25%, transparent 25%), linear-gradient(45deg, var(--pattern-color) 25%, transparent 25%), linear-gradient(315deg, var(--pattern-color) 25%, var(--pattern-bg-color) 25%);
+  background-position: var(--pattern-size, 40px) 0, var(--pattern-size, 40px) 0, 0 0, 0 0;
+  background-size: var(--pattern-size, 40px) var(--pattern-size, 40px);
+  background-repeat: repeat;
 }
 
 .visible {
@@ -711,8 +714,8 @@ video {
   white-space: nowrap;
 }
 
-.rounded-3xl {
-  border-radius: 1.5rem;
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .rounded-full {
@@ -728,9 +731,14 @@ video {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.bg-indigo-400 {
+.bg-indigo-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(129 140 248 / var(--tw-bg-opacity));
+  background-color: rgb(165 180 252 / var(--tw-bg-opacity));
+}
+
+.bg-indigo-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
 .bg-rose-500 {
@@ -761,11 +769,6 @@ video {
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -791,8 +794,8 @@ video {
   opacity: 0.8;
 }
 
-.opacity-90 {
-  opacity: 0.9;
+.opacity-95 {
+  opacity: 0.95;
 }
 
 .filter {
@@ -812,14 +815,14 @@ video {
   transition-duration: 700ms;
 }
 
-.pattern-bg-white {
-  --pattern-bg-color: #fff;
+.pattern-sky-50 {
+  --pattern-color: #f0f9ff;
+  --pattern-color-55: #f0f9ff55;
+  --pattern-color-77: #f0f9ff77;
 }
 
-.pattern-blue-500 {
-  --pattern-color: #3b82f6;
-  --pattern-color-55: #3b82f655;
-  --pattern-color-77: #3b82f677;
+.pattern-bg-indigo-400 {
+  --pattern-bg-color: #818cf8;
 }
 
 .pattern-opacity-40 {
@@ -831,38 +834,24 @@ video {
   --pattern-size-half: calc(2rem / 2);
 }
 
-body::-webkit-scrollbar{
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-/* ===== Scrollbar CSS ===== */
+/* For IE, Edge and Firefox */
 
-/* Firefox */
-
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #cecece #ffffff;
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-/* Chrome, Edge, and Safari */
-
-*::-webkit-scrollbar {
-  width: 16px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #ffffff;
-  border-radius: 2vw;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #cecece;
-  border-radius: 10px;
-}
-
-.hover\:text-5xl:hover {
-  font-size: 3rem;
-  line-height: 1;
+.hover\:text-4xl:hover {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .hover\:opacity-100:hover {
@@ -888,6 +877,16 @@ body::-webkit-scrollbar{
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:hover\:text-5xl:hover {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
