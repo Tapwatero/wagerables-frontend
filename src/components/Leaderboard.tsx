@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios, {AxiosResponse} from "axios";
 import LeaderboardHeader from "./LeaderboardHeader";
 
+
+
 function Leaderboard(): JSX.Element {
     const [totalVotes, setTotalVotes] = useState<string>("0");
     const [leaderboard, setLeaderboard] = useState<string[][]>([[""]]);

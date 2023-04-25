@@ -10,6 +10,7 @@ function Vote(): JSX.Element {
     const [index, setIndex] = useState<number>(0);
     const [matchup, setMatchup] = useState<string[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [skipped, setSkipped] = useState<boolean>(false);
 
     const shuffleMatchups = (pMatchups: string[][]) => {
         // iterate backwards through the array
@@ -54,8 +55,21 @@ function Vote(): JSX.Element {
         axios.post(`https://rankings-tv51.onrender.com/rankings/vote?name=${matchup[id]}`);
     }
 
+    const handleSkip = () => {
+        if (skipped) {
+            return;
+        }
 
-    return (
+        setIndex(index + 1);
+        setSkipped(true);
+
+        setTimeout(() => {
+           setSkipped(false);
+        }, 325);
+    }
+
+
+        return (
         loading ? (
             <div className={"flex flex-col md:flex-row items-center w-screen h-screen cursor-pointer duration-700"}>
                 <div
@@ -69,7 +83,7 @@ function Vote(): JSX.Element {
             </div>
         ) : (
             <div className={"flex flex-col h-screen w-screen"}>
-                <VoteHeader></VoteHeader>
+                    <VoteHeader handleSkip={handleSkip}></VoteHeader>
                 <div className={"flex flex-col md:flex-row items-center w-screen h-screen cursor-pointer duration-700"}>
                     <VoteOption id={0} handleVote={handleVote} matchup={matchup} colour={"bg-rose-500"}></VoteOption>
                     <VoteOption id={1} handleVote={handleVote} matchup={matchup} colour={"bg-sky-500"}></VoteOption>
