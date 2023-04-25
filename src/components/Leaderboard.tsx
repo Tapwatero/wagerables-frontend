@@ -39,7 +39,7 @@ function Leaderboard(): JSX.Element {
 
     return (
             <div className={"select-none flex justify-center items-center h-screen min-h-fit w-screen pattern-rhombus pattern-sky-50 pattern-bg-indigo-400 pattern-size-8 pattern-opacity-40"}>
-                <div className={"py-0.5 scrollbar-hide overflow-y-scroll border-4 border-violet-200 flex-col bg-indigo-500 h-5/6 md:h-4/6 w-11/12 md:w-3/5 xl:w-2/5 rounded-2xl opacity-95"}>
+                <div className={"group py-0.5 scrollbar-hide overflow-y-scroll border-4 border-violet-200 flex-col bg-indigo-500 h-5/6 md:h-4/6 w-11/12 md:w-3/5 xl:w-2/5 rounded-2xl opacity-95"}>
                     <LeaderboardHeader totalVotes={totalVotes}></LeaderboardHeader>
                     <div className={"w-full grid grid-cols-1 gap-0 divide-y-2 border-y-2"}>
                         {list}
