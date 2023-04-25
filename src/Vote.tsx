@@ -65,7 +65,7 @@ function Vote(): JSX.Element {
 
         setTimeout(() => {
            setSkipped(false);
-        }, 325);
+        }, 15000);
     }
 
 
