@@ -3,14 +3,14 @@ import VoteOption from "./components/VoteOption";
 import axios, {AxiosResponse} from "axios";
 import VoteHeader from "./components/VoteHeader";
 import {ClipLoader} from "react-spinners";
+import SkipButton from "./components/SkipButton";
 
 
 function Vote(): JSX.Element {
     const [matchups, setMatchups] = useState<string[][]>();
     const [index, setIndex] = useState<number>(0);
     const [matchup, setMatchup] = useState<string[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [skipped, setSkipped] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const shuffleMatchups = (pMatchups: string[][]) => {
         // iterate backwards through the array
@@ -24,7 +24,7 @@ function Vote(): JSX.Element {
     }
 
     const getMatchups = useCallback(() => {
-        setLoading(true)
+        setLoading(false)
         axios.get("https://rankings-tv51.onrender.com/matchups/").then(function (response: AxiosResponse<string[][]>) {
             setMatchups(shuffleMatchups(response.data));
             setLoading(false);
@@ -32,10 +32,10 @@ function Vote(): JSX.Element {
         });
     }, []);
 
+
     useEffect(() => {
         getMatchups();
     }, [getMatchups]);
-
 
     useEffect(() => {
         if (matchups) {
@@ -56,20 +56,11 @@ function Vote(): JSX.Element {
     }
 
     const handleSkip = () => {
-        if (skipped) {
-            return;
-        }
-
         setIndex(index + 1);
-        setSkipped(true);
-
-        setTimeout(() => {
-           setSkipped(false);
-        }, 15000);
     }
 
 
-        return (
+    return (
         loading ? (
             <div className={"flex flex-col md:flex-row items-center w-screen h-screen cursor-pointer duration-700"}>
                 <div
@@ -82,10 +73,11 @@ function Vote(): JSX.Element {
                 </div>
             </div>
         ) : (
-            <div className={"flex flex-col h-screen w-screen"}>
-                    <VoteHeader handleSkip={handleSkip}></VoteHeader>
-                <div className={"flex flex-col md:flex-row items-center w-screen h-screen cursor-pointer duration-700"}>
+            <div className={"flex flex-col h-screen w-screen justify-center items-center"}>
+                <VoteHeader></VoteHeader>
+                <div className={"flex flex-col lg:flex-row items-center w-screen h-screen cursor-pointer duration-700"}>
                     <VoteOption id={0} handleVote={handleVote} matchup={matchup} colour={"bg-rose-500"}></VoteOption>
+                    <SkipButton handleSkip={handleSkip}></SkipButton>
                     <VoteOption id={1} handleVote={handleVote} matchup={matchup} colour={"bg-sky-500"}></VoteOption>
                 </div>
             </div>

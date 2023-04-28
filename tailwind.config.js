@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
+
 module.exports = {
   mode: 'jit',
   content: [
@@ -10,17 +11,21 @@ module.exports = {
     letterSpacing: {
       widest: '.5em'
     },
+    fontFamily: {
+      'sans': ['roboto']
+    },
     extend: {
       animation: {
-        'pulse-calm': 'pulse-calm 1.2s linear infinite'
+        'better-fade-in': 'better-fade-in 0.5s linear',
+        'spin-fast': 'spin 0.25s linear infinite'
       },
       keyframes: {
-        "pulse-calm": {
+        "better-fade-in": {
           '100%': { opacity: 1 },
-          '75%': { opacity: 0.90 },
-          '50%': { opacity: 0.80 },
-          '25%': { opacity: 0.90 },
-          '0%': { opacity: 1 }
+          '75%': { opacity: 0.75 },
+          '50%': { opacity: 0.50 },
+          '25%': { opacity: 0.25 },
+          '0%': { opacity: 0 }
         }
       }
     },
