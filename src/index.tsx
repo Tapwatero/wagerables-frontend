@@ -6,7 +6,7 @@ import Vote from "./Vote";
 import Leaderboard from "./components/Leaderboard"
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 
 root.render(

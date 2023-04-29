@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {ArrowClockwise, Hourglass} from "react-bootstrap-icons";
+import {ArrowClockwise, Hourglass, Stopwatch, StopwatchFill} from "react-bootstrap-icons";
 
 interface SkipButtonProps {
     handleSkip: () => void;
@@ -33,8 +33,8 @@ function SkipButton(props: SkipButtonProps) {
             <div
                 className={`${isCooldownActive ? 'cursor-not-allowed' : 'cursor-pointer'} border-white border-2 p-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-400 duration-500 text-center select-none rounded-full hover:bg-indigo-500`}>
                 {isCooldownActive ? (
-                    <Hourglass className={"duration-500 transition-opacity animate-pulse animate-better-fade-in"}
-                               fill={"white"} size={"50"}></Hourglass>
+                    <Stopwatch className={"duration-500 transition-opacity animate-pulse animate-better-fade-in"}
+                               fill={"white"} size={"50"}></Stopwatch>
                 ) : (
                     <ArrowClockwise
                         className={`animate-better-fade-in ease-in-out ${isSkipping ? 'animate-spin-fast' : ''}`}
