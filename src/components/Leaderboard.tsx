@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios, {AxiosResponse} from "axios";
 import {ClipLoader} from "react-spinners";
-
+import {Helmet} from "react-helmet";
 
 function Leaderboard(): JSX.Element {
     const [totalVotes, setTotalVotes] = useState<string>("0");
@@ -48,6 +48,11 @@ function Leaderboard(): JSX.Element {
 
     return (
         <div className={"h-screen bg-slate-100"}>
+            <Helmet>
+                <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1978281972391239"
+                        crossOrigin="anonymous"></script>
+            </Helmet>
             <div className={"flex justify-center items-center w-screen"}>
                 {
                     !loading ? (
