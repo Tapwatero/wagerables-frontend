@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {ArrowClockwise, Hourglass, Stopwatch, StopwatchFill} from "react-bootstrap-icons";
+import {ArrowClockwise, Stopwatch} from "react-bootstrap-icons";
 
 interface SkipButtonProps {
     handleSkip: () => void;

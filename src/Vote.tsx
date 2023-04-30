@@ -10,13 +10,13 @@ function Vote(): JSX.Element {
     const [matchups, setMatchups] = useState<string[][]>();
     const [index, setIndex] = useState<number>(0);
     const [matchup, setMatchup] = useState<string[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const shuffleMatchups = (pMatchups: string[][]) => {
         // iterate backwards through the array
-        for (let i = pMatchups.length - 1; i > 0; i--) {
+        for (let i: number = pMatchups.length - 1; i > 0; i--) {
             // pick a random index from 0 to i
-            let j = Math.floor(Math.random() * (i + 1));
+            let j: number = Math.floor(Math.random() * (i + 1));
             // swap the current element with the random element
             [pMatchups[i], pMatchups[j]] = [pMatchups[j], pMatchups[i]];
         }
