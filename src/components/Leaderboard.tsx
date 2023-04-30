@@ -47,7 +47,7 @@ function Leaderboard(): JSX.Element {
                 className={`${index <= 2 ? "opacity-100": ""}  w-full fex justify-center items-center font-['Arial'] text-center opacity-95 select-none duration-200`}>{leaderboardPosition[0]}
             </td>
             <td key={leaderboardPosition[1]}
-                className={"font-['Arial'] text-center opacity-95 select-none duration-200 "}>{leaderboardPosition[1]}</td>
+                className={"font-['Arial'] text-center select-none duration-200 "}>{leaderboardPosition[1]}</td>
         </tr>
     );
 
