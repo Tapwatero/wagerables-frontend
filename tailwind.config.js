@@ -14,10 +14,13 @@ module.exports = {
     fontFamily: {
       'sans': ['roboto']
     },
+    backgroundSize: {
+      '400': '400%'
+    },
     extend: {
       animation: {
         'better-fade-in': 'better-fade-in 0.5s linear',
-        'spin-fast': 'spin 0.25s linear infinite'
+        'spin-fast': 'spin 0.25s linear infinite',
       },
       keyframes: {
         "better-fade-in": {
@@ -26,7 +29,7 @@ module.exports = {
           '50%': { opacity: 0.50 },
           '25%': { opacity: 0.25 },
           '0%': { opacity: 0 }
-        }
+        },
       }
     },
   },
