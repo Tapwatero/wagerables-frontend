@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './input.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Vote from "./Vote";
 import Leaderboard from "./components/Leaderboard"
+import Vote from "./Vote";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

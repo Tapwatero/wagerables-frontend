@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios, {AxiosResponse} from "axios";
 import {ClipLoader} from "react-spinners";
+import FlipMove from "react-flip-move";
 
 
 function Leaderboard(): JSX.Element {
@@ -24,6 +25,8 @@ function Leaderboard(): JSX.Element {
             fetchLeaderboard();
         }
     }, [loading, leaderboard]);
+
+
 
     useEffect(() => {
 
@@ -59,14 +62,12 @@ function Leaderboard(): JSX.Element {
                     !loading ? (
                         <div
                             className={"overflow-y-scroll scrollbar-hide w-full md:w-9/12 lg:w-7/12 p-4 flex flex-col justify-center items-center rounded-3xl"}>
-                            <tr className={"p-3 border-none duration-300 rounded-md w-full grid grid-cols-3 justify-center items-center flex"}>
-                                <th className={"font-['Roboto'] font-medium text-center opacity-95 select-none duration-200 text-center text-md md:text-xl"}>{"Ranking"}</th>
-                                <th className={"font-['Roboto'] font-medium text-center opacity-95 select-none duration-200 text-gray-800 text-md md:text-xl"}>{"Name"}</th>
-                                <th className={"font-['Roboto'] font-medium text-center opacity-95 select-none duration-200 text-gray-800 text-md md:text-xl"}>{`Votes (${totalVotes})`}</th>
-                            </tr>
-                            <div className={"grid w-full border-y-white grid-rows-3 gap-y-4"}>
-                                {list}
-                            </div>
+                                <tr className={"p-3 border-none duration-300 rounded-md w-full grid grid-cols-3 justify-center items-center flex"}>
+                                    <th className={"font-['Proxima_Nova'] font-medium text-center opacity-95 select-none duration-200 text-center text-md md:text-xl"}>{"Ranking"}</th>
+                                    <th className={"font-['Proxima_Nova'] font-medium text-center opacity-95 select-none duration-200 text-gray-800 text-md md:text-xl"}>{"Name"}</th>
+                                    <th className={"font-['Proxima_Nova'] font-medium text-center opacity-95 select-none duration-200 text-gray-800 text-md md:text-xl"}>{`Votes (${totalVotes})`}</th>
+                                </tr>
+                                <FlipMove className={"grid w-full border-y-white grid-rows-3 gap-y-4"}>{list}</FlipMove>
                         </div>
                     ) : (
                         <div className={"h-screen w-screen flex justify-center items-center"}>

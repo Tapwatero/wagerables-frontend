@@ -26,7 +26,7 @@ function VoteOption(props: VoteOptionProps): JSX.Element {
     }
 
     return (
-        <Ripples onClick={handleClick} during={1200} className={`${props.colour} select-none text-center hover:opacity-75 duration-300 lg:w-1/2 lg:h-full  w-full h-full md:text-4xl flex items-center justify-center h-full text-3xl text-white`}>{props.matchup[props.id]}
+        <Ripples onClick={handleClick} during={1200} className={`${props.colour} font-['Proxima_Nova'] select-none text-center hover:opacity-75 duration-300 lg:w-1/2 lg:h-full  w-full h-full md:text-4xl flex items-center justify-center h-full text-3xl text-white`}>{props.matchup[props.id]}
         </Ripples>
     );
 }
