@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import axios, {AxiosResponse} from "axios";
 import {IWager} from "./Marketplace";
 import Wager from "./Wager";
+import {cleanUID} from "./WagerUtils";
 
 function Marketplace() {
     const {user, isAuthenticated} = useAuth0();
@@ -18,7 +19,7 @@ function Marketplace() {
     }, [isAuthenticated, navigate]);
 
     const fetchActiveWagers = useCallback(() => {
-            axios.get(`https://wagerables.onrender.com/api/users/${user?.sub}/claimed`).then(function (response: AxiosResponse<IWager[]>) {
+            axios.get(`https://wagerables.onrender.com/api/users/${cleanUID(user?.sub + "")}/claimed`).then(function (response: AxiosResponse<IWager[]>) {
 
                 const data: IWager[] = response.data;
 

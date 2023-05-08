@@ -4,6 +4,7 @@ import React, {Fragment, useState} from "react";
 import ArchiveWagerButton from "./ArchiveWagerButton";
 import ClaimWagerButton from "./ClaimWagerButton";
 import {useAuth0} from "@auth0/auth0-react";
+import {cleanUID} from "./WagerUtils";
 
 
 export interface IParticipants {
@@ -66,8 +67,8 @@ function Wager(props: WagerProps) {
                         </Form.Item>
 
                         <div className={"flex flex-row gap-4"}>
-                            {!(user?.sub === props.participants.initiator.uid) && props.participants.acceptor.uid.length === 0 ? <ClaimWagerButton wagerID={props.wagerID}></ClaimWagerButton> : ""}
-                            {user?.sub === props.participants.initiator.uid ? <ArchiveWagerButton wagerID={props.wagerID} handleClose={handleClose}/> : ""}
+                            {!(cleanUID(user?.sub + "") === props.participants.initiator.uid) && props.participants.acceptor.uid.length === 0 ? <ClaimWagerButton wagerID={props.wagerID}></ClaimWagerButton> : ""}
+                            {cleanUID(user?.sub + "") === props.participants.initiator.uid ? <ArchiveWagerButton wagerID={props.wagerID} handleClose={handleClose}/> : ""}
                         </div>
                     </Form>
 

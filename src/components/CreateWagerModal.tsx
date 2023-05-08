@@ -6,6 +6,7 @@ import {RangePickerProps} from "antd/es/date-picker";
 import axios, {AxiosResponse} from "axios";
 import {toast} from "react-hot-toast";
 import {useAuth0} from "@auth0/auth0-react";
+import {cleanUID} from "./WagerUtils";
 
 const disabledDate: RangePickerProps['disabledDate'] = (current) => {
     // Can not select days before today and today
@@ -30,14 +31,12 @@ const CreateWagerModal = (props: CreateWagerModalProps) => {
     const onFinish = (values: { statement: string, stake: number, expires: Date }) => {
         setWagerCreating(true);
 
-        console.log(user?.sub);
 
         const data = {
             statement: values.statement,
             stake: values.stake,
             expires: values.expires.toISOString(),
-            initiator: user?.sub,
-            participants: {initiator: {name: user?.nickname, uid: user?.sub}, acceptor: {name: "", uid: ""}}
+            participants: {initiator: {name: user?.nickname, uid: cleanUID(user?.sub + "")}, acceptor: {name: "", uid: ""}}
         }
 
         axios.post(`https://wagerables.onrender.com/api/wagers/create`, data).then(function (response: AxiosResponse<AxiosResponse>) {

@@ -5,6 +5,7 @@ import {useAuth0} from "@auth0/auth0-react";
 import axios, {AxiosResponse} from "axios";
 import {toast} from "react-hot-toast";
 import WagerContext from "./WagerContext";
+import {cleanUID} from "./WagerUtils";
 
 interface ClaimWagerButtonProps {
     wagerID: number,
@@ -18,7 +19,7 @@ function ClaimWagerButton(props: ClaimWagerButtonProps) {
 
     const data = {
         wager_id: props.wagerID,
-        acceptor: { name: user?.name, uid: user?.sub },
+        acceptor: { name: user?.name, uid: cleanUID(user?.sub + "") },
     }
 
 
