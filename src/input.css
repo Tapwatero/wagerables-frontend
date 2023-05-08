@@ -1,26 +1,17 @@
 @import url("https://fonts.cdnfonts.com/css/proxima-nova-2");
+@import url("https://fonts.cdnfonts.com/css/poppins");
+@import url("https://fonts.cdnfonts.com/css/questrial");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-/* For Webkit-based browsers (Chrome, Safari and Opera) */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+html {
+    overflow:   scroll;
 }
 
-/* For IE, Edge and Firefox */
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-@keyframes gradient-x {
-  0% {
-    background-position: left center;
-  }
-  100% {
-    background-position: right center;
-  }
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }

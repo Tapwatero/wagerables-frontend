@@ -1,20 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './input.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Leaderboard from "./components/Leaderboard"
-import Vote from "./Vote";
+import './input.css';
+import AuthorizationPage from "./components/AuthorizationPage";
+import {Auth0Provider} from "@auth0/auth0-react";
+import Marketplace from "./components/Marketplace";
+import Dashboard from "./components/Dashboard";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
 root.render(
-    <BrowserRouter>
+    <Auth0Provider
+        domain="tapwatero.uk.auth0.com"
+        clientId="kkV3B9YoJNxSt6CwDkzGTtfPWF2imEsM"
+        authorizationParams={{
+            redirect_uri: window.location.origin
+        }}>
+        <BrowserRouter>
         <Routes>
-            <Route path={"/"} element={<Vote/>}></Route>
-            <Route path={"/leaderboard"} element={<Leaderboard/>}></Route>
+            <Route path={"/"} element={<AuthorizationPage/>}></Route>
+            <Route path={"/dashboard"} element={<Dashboard/>}></Route>
+            <Route path={"/marketplace"} element={<Marketplace/>}></Route>
+            <Route path={"/users/:userID"} element={<h1>User Profile</h1>}></Route>
         </Routes>
     </BrowserRouter>
+    </Auth0Provider>
 );
-
