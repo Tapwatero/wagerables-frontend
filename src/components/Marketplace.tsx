@@ -3,13 +3,10 @@ import axios, {AxiosResponse} from "axios";
 import {ClipLoader} from "react-spinners";
 import Wager, {IParticipants} from "./Wager";
 import {Toaster} from "react-hot-toast";
-import CreateWagerModal from "./CreateWagerModal";
 import WagerContext from "./WagerContext";
-import Menu from "./Sidebar";
 import {useAuth0} from "@auth0/auth0-react";
 import {useNavigate} from "react-router-dom";
 import Sidebar from "./Sidebar";
-import CreateWagerButton from "./CreateWagerButton";
 
 
 export interface IWager {

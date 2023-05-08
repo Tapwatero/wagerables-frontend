@@ -2,7 +2,7 @@ import {useAuth0} from '@auth0/auth0-react';
 import React from "react";
 import {Link} from "react-router-dom";
 function AuthorizationPage() {
-    const {isLoading, isAuthenticated, error, user, loginWithRedirect, logout, getAccessTokenSilently} =
+    const {isLoading, isAuthenticated, error, loginWithRedirect} =
         useAuth0();
 
 
