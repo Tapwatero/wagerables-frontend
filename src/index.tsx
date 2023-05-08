@@ -19,12 +19,12 @@ root.render(
             redirect_uri: window.location.origin
         }}>
         <BrowserRouter>
-        <Routes>
-            <Route path={"/"} element={<AuthorizationPage/>}></Route>
-            <Route path={"/dashboard"} element={<Dashboard/>}></Route>
-            <Route path={"/marketplace"} element={<Marketplace/>}></Route>
-            <Route path={"/users/:userID"} element={<h1>User Profile</h1>}></Route>
-        </Routes>
-    </BrowserRouter>
+            <Routes>
+                <Route path={"/"} element={<AuthorizationPage/>}></Route>
+                <Route path={"/dashboard"} element={<Dashboard/>}></Route>
+                <Route path={"/marketplace"} element={<Marketplace/>}></Route>
+                <Route path={"/users/:userID"} element={<h1>User Profile</h1>}></Route>
+            </Routes>
+        </BrowserRouter>
     </Auth0Provider>
 );
